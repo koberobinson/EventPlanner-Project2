@@ -1,20 +1,24 @@
 //  Carol actioning - still need to be completed with relationship to many etc
+const Category = require('./Category');
+const City = require('./City');
+const User = require('./User');
+const Event = require('./Event');
+const { hasMany } = require('./Category');
 
-const City = require("./City");
-const Category = require("./Category");
-const User = require("./User");
-const Event = require("./Event");
+Event.hasMany(City, {
+  foreignKey: 'event_id',
+});
 
+City.belongsTo(Event, {
+  foreignKey: 'event_id',
+});
 
-// add relationships
+Event.belongsTo(User, {
+  foreignKey: 'user_id',
+});
 
-// User.hasMany(Project, {
-//   foreignKey: 'user_id',
-//   onDelete: 'CASCADE',
-// });
+Category.belongsTo(Event, {
+  foreignKey: 'event_id',
+});
 
-// Project.belongsTo(User, {
-//   foreignKey: 'user_id',
-// });
-
-module.exports = { Event, City, User, Category };
+module.exports = { Category, Event, City, User };

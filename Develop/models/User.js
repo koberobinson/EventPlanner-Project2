@@ -1,3 +1,5 @@
+// carol actioned, I think this is complete
+
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
@@ -35,6 +37,13 @@ User.init(
         len: [8],
       },
     },
+    event_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'event',
+        key: 'id',
+      },
+    },
   },
   {
     hooks: {
@@ -43,7 +52,10 @@ User.init(
         return newUserData;
       },
       beforeUpdate: async (updatedUserData) => {
-        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        updatedUserData.password = await bcrypt.hash(
+          updatedUserData.password,
+          10
+        );
         return updatedUserData;
       },
     },

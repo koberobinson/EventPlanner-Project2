@@ -1,25 +1,34 @@
+//  carol actioned this, i think its complete
+
+const chalk = require("chalk");
+const sequelize = require("../config/connection");
+const { Category, City, Location, User, Event } = require("../models");
+
+const seedCategory = require("./category-seed");
+const seedCity = require("./city-seed");
+const seedUser = require("./user-seed");
+const seedEvent = require("./event-seed");
+
 const sequelize = require('../config/connection');
-const { User, Project } = require('../models');
 
-const userData = require('./userData.json');
-const projectData = require('./projectData.json');
-
-const seedDatabase = async () => {
+const seedAll = async () => {
   await sequelize.sync({ force: true });
+  console.log("\n----- DATABASE SYNCED -----\n");
 
-  const users = await User.bulkCreate(userData, {
-    individualHooks: true,
-    returning: true,
-  });
+  await seedCategory();
+  console.log(
+    chalk.black.bgGreenBright.bold("n----- CATEGORY SEEDED -----\n"));
 
-  for (const project of projectData) {
-    await Project.create({
-      ...project,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
-    });
-  }
+  await seedCity();
+  console.log(chalk.black.bgGreenBright.bold("\n----- CITY SEEDED -----\n"));
+
+  await seedUser();
+  console.log(chalk.black.bgGreenBright.bold("\n----- USER SEEDED -----\n"));
+
+  await seedEvent();
+  console.log(chalk.black.bgGreenBright.bold("\n----- EVENT SEEDED -----\n"));
 
   process.exit(0);
 };
 
-seedDatabase();
+seedAll();

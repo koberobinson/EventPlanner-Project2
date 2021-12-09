@@ -38,6 +38,11 @@ app.get("/register", (req, res) => {
     res.render("register");
 });
 
+app.get("/login", (req, res) => {
+    //res.send("<h1>Home Page</h1>")
+    res.render("login");
+});
+
 app.listen(3001, () =>{
     console.log("Server started on Port 3001");
 })

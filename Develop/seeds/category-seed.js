@@ -4,36 +4,40 @@ const { Category } = require('../models');
 
 const categoryData = [
   {
-    description: 'Family Friendly',
-    id: '1',
+     id: '1',
+    description: 'Family Friendly'
+   
+  },
+  {id: '2',
+    description: 'Singles'
+    
+  },
+  {id: '3',
+    description: 'Pub Crawl'
+    
+  },
+  {id: '4',
+    description: 'Couples'
+    
   },
   {
-    description: 'Singles',
-    id: '2',
-  },
-  {
-    description: 'Pub Crawl',
-    id: '3',
-  },
-  {
-    description: 'Couples',
-    id: '4',
-  },
-  {
-    description: '20-30',
     id: '5',
+    description: '20-30'
+    
   },
   {
-    description: '30-50',
     id: '6',
+    description: '30-50'
+    
   },
   {
-    description: '50+',
     id: '7',
+    description: '50+'
+    
   },
   {
-    description: 'Seniors',
-    id: '8',
+     id: '8',
+    description: 'Seniors'   
   },
  
 ];

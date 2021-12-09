@@ -13,13 +13,11 @@ Category.init(
       primaryKey: true,
       autoIncrement: true,
     },
-  
-      description: {
+
+    description: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-  
-      // reference to 
     event_id: {
       type: DataTypes.INTEGER,
       references: {

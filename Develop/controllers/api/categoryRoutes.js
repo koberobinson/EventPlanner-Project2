@@ -15,6 +15,18 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+router.put('/', withAuth, async (req, res) => {
+  try {
+    const updateCategory = await Category.update(
+      {description: req.body.name},
+      {returning: true, where: req.params.id});
+
+    res.status(200).json(updateCategory);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const newCategory = await Category.destroy({

@@ -27,9 +27,9 @@
                 Register Form
             </div>
             <div class="card-body">
-                <form>
+                <form action="/auth/register" method="POST">
                     <div class="form-group">
-                        <label for="name">name</label>
+                        <label for="name">Name</label>
                         <input type="text" class="form-control" id="name" name="name">
                     </div>
 
@@ -43,10 +43,18 @@
                         <input type="password" class="form-control" id="password" name="password">
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="form-group">
+                        <label for="passwordConfirm">Confirm Password</label>
+                        <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Register User</button>
                 </form>
             </div>
         </div>
+        {{#if message }}
+            <h4 class="alert alert-danger mt-4">{{message}}</h4>
+        {{/if}}
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"

@@ -22,10 +22,6 @@ Event.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    city: {
-      type: DataTypes.STRING,
-    },
-
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -34,6 +30,7 @@ Event.init(
       },
     },
   },
+
   {
     sequelize,
     timestamps: false,

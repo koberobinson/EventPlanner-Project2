@@ -1,66 +1,63 @@
 // carol actioned this, i think this is complete
 
-const { City } = require("../models");
+const { City} = require('../models');
 
-const cityData = [
+const seedData = [
   {
-    name: "Brisbane",
-    id: "1",
+    id: 1,
+    name: 'Brisbane'
   },
   {
-    name: "Adelaide",
-    id: "2",
+    id: 2,
+    name: 'Adelaide'
   },
   {
-    name: "Perth",
-    id: "3",
+    id: 3,
+    name: 'Perth'
   },
   {
-    name: "Melbourne",
-    id: "4",
+    id: 4,
+    name: 'Melbourne'
   },
   {
-    name:"Sydney",
-    id: "6",
+    id: 5,
+    name: 'Sydney'
   },
   {
-    name: "Gold Coast",
-    id: "7",
+    id: 6,
+    name: 'Gold Coast'
   },
   {
-    name: "Canberra",
-    id: "8",
+    id: 7,
+    name: 'Canberra'
   },
   {
-    name: "Geelong",
-    id: "9",
+    id: 8,
+    name: 'Geelong'
   },
   {
-    name: "Hobart",
-    id: "10",
+    id: 9,
+    name: 'Hobart'
   },
   {
-    name: "Townsville",
-    id: "11",
+    id: 10,
+    name: 'Townsville'
   },
   {
-    name: "Cairns",
-    id: "12",
+    id: 11,
+    name: 'Cairns'
   },
   {
-    name: "Bendigo",
-    id: "13",
+    id: 12,
+    name: 'Bendigo'
   },
   {
-    name: "Darwin",
-    id: "14",
-  },
-  {
-    name:"Darwin",
-    id: "15",
+    id: 13,
+    name: 'Darwin'
   },
 ];
 
-const seedCity = () => City.bulkCreate(cityData);
+const seedCity = () => City.bulkCreate(seedData);
+
 
 module.exports = seedCity;

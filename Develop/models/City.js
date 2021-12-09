@@ -17,7 +17,6 @@ City.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-
     event_id: {
       type: DataTypes.INTEGER,
       references: {

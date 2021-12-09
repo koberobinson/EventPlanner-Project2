@@ -29,7 +29,23 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.post('/', async (req, res) => {
+router.put('/', withAuth, async (req, res) => {
+  try {
+    const updateEvent = await Event.update(
+      {description: req.body.name},
+      {date: req.body.date},
+      {city: req.body.city}, 
+      {id: req.body.id},
+      {user_id: req.body.user_id},
+      {returning: true, where: req.params.id});
+
+    res.status(200).json(updateEvent);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.post('/', withAuth, async (req, res) => {
   try {
     const newEvent = await Event.create({
       ...req.body,
@@ -42,7 +58,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const eventData = await Event.destroy({
       where: {

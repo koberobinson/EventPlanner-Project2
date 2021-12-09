@@ -9,7 +9,24 @@ router.post('/', withAuth, async (req, res) => {
       id: req.session.id,
     });
 
-    res.status(200).json(newCity);
+    const city = newCity.get({ plain: true });
+
+    res.status(200).json(city), 
+    res.render('main', 
+    city, 
+    logged_in);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.put('/', withAuth, async (req, res) => {
+  try {
+    const updateCity = await City.update(
+      {name: req.body.name},
+      {returning: true, where: req.params.id});
+
+    res.status(200).json(updateCity);
   } catch (err) {
     res.status(400).json(err);
   }

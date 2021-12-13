@@ -25,9 +25,11 @@ const seedAll = async () => {
 
   process.exit(0);
 };
-
+try {
 seedAll();
-
+} catch (err) {
+  console.log(err);
+}
 
 
 // const { Category, City, User, Event } = require("../models");

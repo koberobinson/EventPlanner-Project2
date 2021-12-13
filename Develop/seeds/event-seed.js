@@ -32,8 +32,8 @@ const eventData = [
     description: "Kim's Sunset Drinks",
     date: 'December 31, 2021 18:00:00',
     user_id: 5,
-    city_id: 11,
-    category_id: 9,
+    city_id: 7,
+    category_id: 7,
   },
   {
     id: 5,
@@ -41,7 +41,7 @@ const eventData = [
     date: 'January 10, 2022 06:30:00',
     user_id: 7,
     city_id: 2,
-    category_id: 10,
+    category_id: 7,
   },
 ];
 

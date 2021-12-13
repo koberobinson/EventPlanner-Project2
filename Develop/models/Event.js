@@ -20,12 +20,26 @@ Event.init(
     date: {
       type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: DataTypes.NOW,
+      // defaultValue: DataTypes.NOW,
     },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
+        key: 'id',
+      },
+    },
+    city_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'city',
+        key: 'id',
+      },
+    },
+    category_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'category',
         key: 'id',
       },
     },

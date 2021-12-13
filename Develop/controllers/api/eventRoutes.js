@@ -2,45 +2,46 @@ const router = require('express').Router();
 const { Event } = require('../../models');
 const withAuth = require('../../../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
-  try {
-    const eventData = await Event.findAll({
-      attributes: { exclude: ['password'] },
-      order: [['name', 'ASC']],
-    });
+// router.get('/', withAuth, async (req, res) => {
+//   try {
+//     const eventData = await Event.findAll({
+//       attributes: { exclude: ['password'] },
+//       order: [['name', 'ASC']],
+//     });
 
-    const events = eventData.map((event) => event.get({ plain: true }));
+//     const events = eventData.map((event) => event.get({ plain: true }));
 
-    res.render('homepage', {
-      events,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.render('homepage', {
+//       events,
+//       logged_in: req.session.logged_in,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
-router.get('/login', (req, res) => {
-  if (req.session.logged_in) {
-    res.redirect('/');
-    return;
-  }
+// router.get('/login', (req, res) => {
+//   if (req.session.logged_in) {
+//     res.redirect('/');
+//     return;
+//   }
 
-  res.render('login');
-});
+//   res.render('login');
+// });
 
 router.put('/', withAuth, async (req, res) => {
   try {
     const updateEvent = await Event.update(
       {description: req.body.name},
       {date: req.body.date},
-      {city: req.body.city}, 
+      {city_id: req.body.city}, 
       {id: req.body.id},
       {user_id: req.body.user_id},
       {returning: true, where: req.params.id});
 
     res.status(200).json(updateEvent);
   } catch (err) {
+    console.log("could not update event");
     res.status(400).json(err);
   }
 });
@@ -54,6 +55,7 @@ router.post('/', withAuth, async (req, res) => {
 
     res.status(200).json(newEvent);
   } catch (err) {
+    console.log("could not create event");
     res.status(400).json(err);
   }
 });

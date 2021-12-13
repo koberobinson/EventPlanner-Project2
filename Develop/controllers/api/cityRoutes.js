@@ -2,11 +2,11 @@ const router = require('express').Router();
 const { City } = require('../../models');
 const withAuth = require('../../../utils/auth');
 
+// creating new city; only need name from front end, autoincrement id
 router.post('/', withAuth, async (req, res) => {
   try {
     const newCity = await City.create({
       ...req.body,
-      id: req.session.id,
     });
 
     const city = newCity.get({ plain: true });
@@ -20,11 +20,14 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+//  updating category, if request id is the same as an id in the database; must obtain both id and description from front end
 router.put('/', withAuth, async (req, res) => {
   try {
-    const updateCity = await City.update(
-      {name: req.body.name},
-      {returning: true, where: req.params.id});
+
+    const city = await City.findOne({ where: { id: req.body.id } });
+
+    const updateCity = await city.update(
+      {name: req.body.name});
 
     res.status(200).json(updateCity);
   } catch (err) {

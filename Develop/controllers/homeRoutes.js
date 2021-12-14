@@ -1,25 +1,33 @@
 const router = require('express').Router();
-const { Project, User } = require('../models');
-const withAuth = require('../utils/auth');
+const { User, Category, City, Event } = require('../models');
+const withAuth = require('../../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
-    const projectData = await Project.findAll({
+    // Get all events and JOIN with user data, cities and categories
+    const eventData = await Event.findAll({
       include: [
         {
           model: User,
           attributes: ['name'],
         },
+        {
+          model: Category,
+          attributes: ['description'],
+        }, 
+        {
+          model: City,
+          attributes: ['name']
+        }
       ],
     });
 
     // Serialize data so the template can read it
-    const projects = projectData.map((project) => project.get({ plain: true }));
+    const events = eventData.map((event) => event.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-      projects, 
+      events, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
@@ -27,21 +35,29 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/project/:id', async (req, res) => {
+router.get('/event/:id', async (req, res) => {
   try {
-    const projectData = await Project.findByPk(req.params.id, {
+    const eventData = await Event.findByPk(req.params.id, {
       include: [
         {
           model: User,
           attributes: ['name'],
         },
+        {
+          model: Category,
+          attributes: ['description'],
+        }, 
+        {
+          model: City,
+          attributes: ['name']
+        }
       ],
     });
 
-    const project = projectData.get({ plain: true });
+    const event = eventData.get({ plain: true });
 
-    res.render('project', {
-      ...project,
+    res.render('event', {
+      ...event,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -72,7 +88,7 @@ router.get('/profile', withAuth, async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/register');
     return;
   }
 

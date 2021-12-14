@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Event } = require('../../models');
 const withAuth = require('../../../utils/auth');
 
-// 
+// updating event route; event is obtained via event id which the user must supply, along with updated data from the front end
 router.put('/', withAuth, async (req, res) => {
   try {
 
@@ -22,6 +22,7 @@ router.put('/', withAuth, async (req, res) => {
   }
 });
 
+// event create route, obtained from user data via front end
 router.post('/', withAuth, async (req, res) => {
   try {
     const newEvent = await Event.create({
@@ -35,6 +36,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+// delete event route; deleted by id via URL params from front end
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const eventData = await Event.destroy({

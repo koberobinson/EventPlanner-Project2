@@ -56,7 +56,7 @@ router.post('/login', async (req, res) => {
 });
 
 // logout route; event listner for click on logout button
-router.post('/logout', withAuth, (req, res) => {
+router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     console.log("you have logged out");
     req.session.destroy(() => {

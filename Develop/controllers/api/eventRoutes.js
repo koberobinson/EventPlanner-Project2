@@ -2,42 +2,18 @@ const router = require('express').Router();
 const { Event } = require('../../models');
 const withAuth = require('../../../utils/auth');
 
-// router.get('/', withAuth, async (req, res) => {
-//   try {
-//     const eventData = await Event.findAll({
-//       attributes: { exclude: ['password'] },
-//       order: [['name', 'ASC']],
-//     });
-
-//     const events = eventData.map((event) => event.get({ plain: true }));
-
-//     res.render('homepage', {
-//       events,
-//       logged_in: req.session.logged_in,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-// router.get('/login', (req, res) => {
-//   if (req.session.logged_in) {
-//     res.redirect('/');
-//     return;
-//   }
-
-//   res.render('login');
-// });
-
+// updating event route; event is obtained via event id which the user must supply, along with updated data from the front end
 router.put('/', withAuth, async (req, res) => {
   try {
-    const updateEvent = await Event.update(
-      {description: req.body.name},
+
+    const event = await Event.findOne({ where: { id: req.body.id } });
+
+    const updateEvent = await event.update(
+      {description: req.body.description},
       {date: req.body.date},
-      {city_id: req.body.city}, 
-      {id: req.body.id},
+      {city_id: req.body.city_id},
       {user_id: req.body.user_id},
-      {returning: true, where: req.params.id});
+      {category_id: req.body.category_id});
 
     res.status(200).json(updateEvent);
   } catch (err) {
@@ -46,11 +22,11 @@ router.put('/', withAuth, async (req, res) => {
   }
 });
 
+// event create route, obtained from user data via front end
 router.post('/', withAuth, async (req, res) => {
   try {
     const newEvent = await Event.create({
       ...req.body,
-      id: req.session.id,
     });
 
     res.status(200).json(newEvent);
@@ -60,12 +36,12 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+// delete event route; deleted by id via URL params from front end
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const eventData = await Event.destroy({
       where: {
         id: req.params.id,
-        id: req.session.id,
       },
     });
 

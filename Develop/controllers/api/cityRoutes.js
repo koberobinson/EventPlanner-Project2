@@ -35,12 +35,12 @@ router.put('/', withAuth, async (req, res) => {
   }
 });
 
+// delete city route; obtain id via URL params
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const cityData = await City.destroy({
       where: {
-        id: req.params.id,
-        id: req.session.id,
+        id: req.params.id
       },
     });
 

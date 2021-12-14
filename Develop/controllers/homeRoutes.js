@@ -76,4 +76,14 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/cities', (req, res) => {
+  res.render('cities');
+  // list of cities with calendars via handlebars
+})
+router.get('/city/:cityId', (req, res) => {
+  res.render('calendar', {cityId: req.params.cityId});
+})
+
+
 module.exports = router;
+

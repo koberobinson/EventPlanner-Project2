@@ -4,7 +4,7 @@ const withAuth = require('../../../utils/auth');
 const bcrypt = require('bcrypt');
 
 // creating a new user account; obtain via front end form data
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
   try {
     const userData = await User.create(
       {name: req.body.name,
@@ -17,6 +17,7 @@ router.post('/', async (req, res) => {
       res.status(200).json(userData);
     });
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });

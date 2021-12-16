@@ -12,11 +12,28 @@
     });
 
     const event = { title: "dinner", start: "2021-12-15", backgroundColor: "purple" };
+
+
     calendar.addEvent(event);
     calendar.render();
+    
   });
 
 </script>
 
+<div class="container mt-4">
+
+  {{!-- {{#if events.length}}
+
+  {{#each events as |event|}}
+  const event = { title: "{{event.descript}}", start: "{{event.date}}"};
+
+  calendar.addEvent(event);
+  calendar.render();
+
+  {{#/each}}
+  {{#/if}} --}}
+
 <div id='calendar'></div>
+</div>
 

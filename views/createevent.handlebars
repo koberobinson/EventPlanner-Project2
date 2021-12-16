@@ -18,17 +18,25 @@
                     <div class="form-group">
                         <label for="event-city">City</label>
                         <input type="form-input" class="form-control" id="city" name="city">
+                        {{!-- select city id instead of insert name??? --}}
                     </div>
 
                     <div class="form-group">
                         <label for="event-category">Category</label>
                         <input type="form-input" class="form-control" id="category" name="category">
+                        {{!-- select category id instead of insert name?? --}}
                     </div>
 
                     <div class="form-group">
-                        <label for="event-category">Date and Time</label>
+                        <label for="date-time">Date and Time</label>
                         {{!-- need to adjust type to accept form and date --}}
-                        <input type="form-input" class="form-control" id="category" name="category">
+                        <input type="form-input" class="form-control" id="date-time" name="date-time">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user-id">Host User ID</label>
+                        <input type="form-input" class="form-control" id="user-id" name="user-id">
+                        {{!-- select category id instead of insert name?? --}}
                     </div>
 
                     <button type="submit" class="btn btn-primary">Submit</button>

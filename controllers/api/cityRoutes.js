@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { City } = require('../../models');
-const withAuth = require('../../../utils/auth');
+const withAuth = require('../../utils/auth');
 
 // creating new city; only need name from front end, autoincrement id
 router.post('/', withAuth, async (req, res) => {

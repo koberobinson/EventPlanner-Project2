@@ -4,15 +4,12 @@
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
 
 <script>
-  const cityId = {{{ cityId }}};
-  {{!-- obtained cityId from route --}}
+
   document.addEventListener('DOMContentLoaded', function () {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
       initialView: 'dayGridMonth', events: [{ title: "breakfast", start: "2021-12-16" }]
     });
-
-    {{!-- COMMENT HERE: fetch request; route to get data in correct format(title and start), then add event for each(map an array --}}
 
     const event = { title: "dinner", start: "2021-12-15", backgroundColor: "purple" };
     calendar.addEvent(event);

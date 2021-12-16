@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calendar Event App</title>
@@ -13,26 +14,19 @@
 
 <body>
 
-  <nav>
+   <nav>
     <h4> Calendar Event app</h4>
     <ul>
-      <!--{{# if loggedin}}
-      <li id="logoutbtn"><a href="/logout">Log out</a></li>
-      <li><a href="/calendar">Calendar</a></li>
-      <li><a href="/createevent">Create Event</a></li>
-      {{else }}
-      <li><a href="/signup">Sign Up</a></li>
-      <li><a href="/login">Log In</a></li>
-      {{/if}}-->
-      <li id="logoutbtn"><a href="/logout">Log out</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/login">Login</a></li>
       <li><a href="/calendar">Calendar</a></li>
       <li><a href="/createevent">Create Event</a></li>
       <li><a href="/signup">Sign Up</a></li>
-      <li><a href="/login">Log In</a></li>
+      <li id="logoutbtn"><a href="/logout">Logout</a></li>
     </ul>
   </nav>
-
-  {{{body}}}
+    
+      {{{body}}}
 
   <script src="/js/logout.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"

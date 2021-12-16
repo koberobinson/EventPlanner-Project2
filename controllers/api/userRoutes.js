@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
-const withAuth = require('../../../utils/auth');
+const withAuth = require('../../utils/auth');
 const bcrypt = require('bcrypt');
 
 // creating a new user account; obtain via front end form data
@@ -17,7 +17,6 @@ router.post('/signup', async (req, res) => {
       res.status(200).json(userData);
     });
   } catch (err) {
-    console.log(err);
     res.status(400).json(err);
   }
 });

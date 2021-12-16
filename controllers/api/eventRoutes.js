@@ -2,6 +2,9 @@ const router = require('express').Router();
 const { Event } = require('../../models');
 const withAuth = require('../../../utils/auth');
 
+const withAuth = require('../../utils/auth');
+
+
 // updating event route; event is obtained via event id which the user must supply, along with updated data from the front end
 router.put('/', withAuth, async (req, res) => {
   try {
@@ -13,6 +16,9 @@ router.put('/', withAuth, async (req, res) => {
       {date: req.body.date},
       {city_id: req.body.city_id},
       {user_id: req.body.user_id},
+
+      // delete user ID?? how to obtain user ID? get them to self select their ID?
+
       {category_id: req.body.category_id});
 
     res.status(200).json(updateEvent);

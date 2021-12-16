@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Category, City, Event } = require('../models');
-const withAuth = require('../../utils/auth');
+const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
   try {
@@ -35,35 +35,35 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/event/:id', async (req, res) => {
-  try {
-    const eventData = await Event.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-        {
-          model: Category,
-          attributes: ['description'],
-        }, 
-        {
-          model: City,
-          attributes: ['name']
-        }
-      ],
-    });
+// router.get('/event/:id', async (req, res) => {
+//   try {
+//     const eventData = await Event.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: User,
+//           attributes: ['name'],
+//         },
+//         {
+//           model: Category,
+//           attributes: ['description'],
+//         }, 
+//         {
+//           model: City,
+//           attributes: ['name']
+//         }
+//       ],
+//     });
 
-    const event = eventData.get({ plain: true });
+//     const event = eventData.get({ plain: true });
 
-    res.render('event', {
-      ...event,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.render('event', {
+//       ...event,
+//       logged_in: req.session.logged_in
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 
 router.get('/login', (req, res) => {
@@ -86,16 +86,72 @@ router.get('/city/:cityId', (req, res) => {
 })
 
 router.get('/calendar', (req, res) => {
-  res.render('calendar');
-})
+
+  if (req.session.logged_in) {
+    res.render('calendar');
+    return;
+  }
+
+  res.render('login');
+});
+
+router.get('/calendar', withAuth, async (req, res) => {
+  try {
+    // Get all events and JOIN with user data, cities and categories
+    const eventData = await Event.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name', 'id'],
+        },
+        {
+          model: Category,
+          attributes: ['description', 'id'],
+        }, 
+        {
+          model: City,
+          attributes: ['name', 'id']
+        }
+      ],
+    });
+
+    // Serialize data so the template can read it
+    const events = eventData.map((event) => event.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('/calendar', { 
+      events, 
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.get('/signup', (req, res) => {
   res.render('signup');
 })
 
 router.get('/createevent', (req, res) => {
-  res.render('createevent');
-})
+  if (req.session.logged_in) {
+    res.render('createevent');
+    return;
+  }
+
+  res.render('login');
+});
+
+router.post('/createevent', withAuth, async (req, res) => {
+  try {
+    const newEvent = await Event.create({
+      ...req.body,
+    });
+
+    res.status(200).json(newEvent);
+  } catch (err) {
+    console.log("could not create event");
+    res.status(400).json(err);
+  }
+});
 
 module.exports = router;
-

@@ -79,11 +79,23 @@ router.get('/login', (req, res) => {
 router.get('/cities', (req, res) => {
   res.render('cities');
   // list of cities with calendars via handlebars
-})
+});
+
 router.get('/city/:cityId', (req, res) => {
   res.render('calendar', {cityId: req.params.cityId});
 })
 
+router.get('/calendar', (req, res) => {
+  res.render('calendar');
+})
+
+router.get('/signup', (req, res) => {
+  res.render('signup');
+})
+
+router.get('/createevent', (req, res) => {
+  res.render('createevent');
+})
 
 module.exports = router;
 

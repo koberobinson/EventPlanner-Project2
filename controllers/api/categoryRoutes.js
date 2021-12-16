@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Category } = require('../../models');
-const withAuth = require('../../../utils/auth');
+const withAuth = require('../../utils/auth');
 
 // create category with autoincrement ID; description obtained from front end form data
 router.post('/', withAuth, async (req, res) => {

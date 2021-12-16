@@ -1,29 +1,31 @@
-{{!--  carol actioned, i think this is complete for the new user creation --}}
-
 <div class="container mt-4">
-<div class="row">
+  <div class="card">
+    <div class="card-header">
+      Register Form
+    </div>
+    <div class="card-body">
+      <form class="form signup-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name">
+        </div>
 
-    <h2>Signup</h2>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" class="form-control" id="email">
+        </div>
 
-    <form class="form signup-form">
-      <div class="form-group">
-        <label for="name-signup">Name:</label>
-        <input class="form-input" type="text" id="name-signup" />
-      </div>
-      <div class="form-group">
-        <label for="email-signup">Email:</label>
-        <input class="form-input" type="text" id="email-signup" />
-      </div>
-      <div class="form-group">
-        <label for="password-signup">Password:</label>
-        <input class="form-input" type="password" id="password-signup" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">signup</button>
-      </div>
-    </form>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password">
+        </div>
+
+        <div>
+          <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
 </div>
 
 <script src="/js/signup.js"></script>

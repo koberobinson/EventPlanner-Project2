@@ -69,11 +69,33 @@ router.get('/event/:id', async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/index');
+    res.redirect('/');
     return;
   }
 
   res.render('login');
 });
 
+router.get('/cities', (req, res) => {
+  res.render('cities');
+  // list of cities with calendars via handlebars
+});
+
+router.get('/city/:cityId', (req, res) => {
+  res.render('calendar', {cityId: req.params.cityId});
+})
+
+router.get('/calendar', (req, res) => {
+  res.render('calendar');
+})
+
+router.get('/signup', (req, res) => {
+  res.render('signup');
+})
+
+router.get('/createevent', (req, res) => {
+  res.render('createevent');
+})
+
 module.exports = router;
+

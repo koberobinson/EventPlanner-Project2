@@ -4,8 +4,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js",
-    "seed": "node seeds/seed.js"
+    "start": "node app.js",
+    "seed": "node seeds/seed.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",

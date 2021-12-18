@@ -7,14 +7,14 @@
   <title>Calendar Event App</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
     integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="/css/jass.css">
+   {{!-- <link rel="stylesheet" type="text/css" href="/css/jass.css"> --}}
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
 <body>
 
    <nav>
-    <h4> Calendar Event app</h4>
+    <h4>Event app</h4>
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/login">Login</a></li>
@@ -24,9 +24,16 @@
       <li id="logoutbtn"><a href="/logout">Logout</a></li>
     </ul>
   </nav>
+   <div class="jumbotron">
+      <h1 class="display">Where's the Party at?</h1>
+   <br>
+      <p>Sign-Up or Login in to create an event or look for an event to attend.</p><br>
+
+      <div class=body>   
     
       {{{body}}}
-
+      
+</div>
   <script src="/js/logout.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
     integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"

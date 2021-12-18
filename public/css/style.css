@@ -1,29 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
+html {
+  width: 100vw;
+  height: 100vh;
+  line-height: 1.15;
+}
+
+
 nav {
-    background-color: blue;
-    color: #fff;
-    padding: 30px 60px;
-    display: flex;
-    justify-content: space-between;
+  background-color: transparent;
+  color: purple;
+  padding: 30px 60px;
+  display: flex;
+  justify-content: space-between;
 }
 
 nav ul {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 nav li {
-    list-style: none;
+  list-style: none;
 }
 
 nav li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 5px 8px;
+  color: purple;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 8px;
 }
 
 nav li a:hover {
-    color: yellow;
-    text-decoration: none;
+  color: yellow;
+  text-decoration: none;
+}
+
+.jumbotron {
+  background-color: transparent;
+  text-align: center;
+  color: purple;
+  font-family: 'Rock Salt', cursive;
+  font-weight: bolder;
+}
+
+main {
+  display: block;
+}
+
+body {
+  background-image: url(../images/pxfuel.jpg);
+  background-repeat: no-repeat;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: right;
+}
+
+.body {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0%;
+  align-items: center;
+}
+
+.card {
+  width: 50%;
+  border-radius: 25px;
+  background-color: purple;
+  color: white;
+}
+
+.btn {
+  background-color: plum;
+}
+
+.mt-4 {
+  margin: 0%;
 }

@@ -32,7 +32,7 @@ nav li a {
 }
 
 nav li a:hover {
-  color: yellow;
+  color: purple;
   text-decoration: none;
 }
 

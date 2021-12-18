@@ -1,45 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 
-html {
-  width: 100vw;
-  height: 100vh;
-  line-height: 1.15;
-}
-
-nav {
-  background-color: transparent;
-  color: white;
-  padding: 30px 60px;
-  display: flex;
-  justify-content: space-between;
-}
-
-nav ul {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-nav li {
-  list-style: none;
-}
-
-nav li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 5px 8px;
-}
-
-nav li a:hover {
-  color: purple;
-  text-decoration: none;
-}
 
 .jumbotron {
   background-color: transparent;
   text-align: center;
-  color: #636363;
+  color: black;
   font-family: 'Rock Salt', cursive;
   font-size: 4em;
   font-weight: 800;
@@ -51,11 +16,23 @@ main {
 }
 
 body {
-  background-image: url(../images/pxfuel.jpg);
-  background-repeat: no-repeat;
+   height: 100vh;
+  width:100vw;  
+  background-image: url(../images/pxfuel.jpg); 
+  background-repeat: repeat;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+.navbar {
+  background: transparent;
+   
+}
+
+.nav-link {
+  color: black;
+  
 }
 
 .body {
@@ -69,18 +46,20 @@ body {
 
 .card {
   border-radius: 25px;
-  background-color: #a2ab58;
-  color: white;
+  background-color: #bdc3c7;
+  color: black;
+ border-color: #bdc3c7;
   font-family: 'Rock Salt', cursive;
 }
 
 .btn {
   background-color: #636363;
-  border-color: antiquewhite;
+  border-color: black;
    color: white;
 }
 
 .mt-4 {
   margin: 0%;
 }
+
 

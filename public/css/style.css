@@ -6,7 +6,6 @@ html {
   line-height: 1.15;
 }
 
-
 nav {
   background-color: transparent;
   color: purple;
@@ -47,6 +46,7 @@ nav li a:hover {
 
 main {
   display: block;
+   font-family: 'Rock Salt', cursive;
 }
 
 body {
@@ -71,6 +71,7 @@ body {
   border-radius: 25px;
   background-color: purple;
   color: white;
+  font-family: 'Rock Salt', cursive;
 }
 
 .btn {

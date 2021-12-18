@@ -39,14 +39,15 @@ nav li a:hover {
 .jumbotron {
   background-color: transparent;
   text-align: center;
-  color: purple;
+  color: #636363;
   font-family: 'Rock Salt', cursive;
-  font-weight: bolder;
+  font-size: 4em;
+  font-weight: 800;
 }
 
 main {
   display: block;
-   font-family: 'Rock Salt', cursive;
+  font-family: 'Rock Salt', cursive;
 }
 
 body {
@@ -55,7 +56,6 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-position: right;
 }
 
 .body {
@@ -63,21 +63,24 @@ body {
   margin-left: auto;
   margin-right: auto;
   padding: 0%;
-  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .card {
-  width: 50%;
   border-radius: 25px;
-  background-color: purple;
+  background-color: #a2ab58;
   color: white;
   font-family: 'Rock Salt', cursive;
 }
 
 .btn {
-  background-color: plum;
+  background-color: #636363;
+  border-color: antiquewhite;
+   color: white;
 }
 
 .mt-4 {
   margin: 0%;
 }
+

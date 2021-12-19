@@ -1,5 +1,3 @@
-# EventPlanner-Project2
-
 ![License](https://img.shields.io/static/v1?label=License&message=MIT&color=blue)
 
 # Project 2 - Event Planner = Where's the Party at??

@@ -1,6 +1,6 @@
 ![License](https://img.shields.io/static/v1?label=License&message=MIT&color=blue)
 
-# Project 2 - Event Planner = Where's the Party at??
+# Project 2 - Event Planner - Where's the Party at??
 
 
 Live Application Link 👀 **https://wheres-the-party-at.herokuapp.com/login **
@@ -51,28 +51,35 @@ As a User, I want to create events that people can attend, and likewise look for
 * Links to the deployed application and the GitHub repository.
 ---
 
-## Images / Video
+## Images 
+
+Team Repo 🤝
+
+Ben - https://github.com/B3nj1e
+
+<img src="./public/images/Ben.jpg" width= "170">
+
+Gustavo - https://github.com/gharduim
+
+<img src="./public/images/Gus.jpg" width="170">
+
+Kobe - https://github.com/koberobinson
+
+<img src="./public/images/Kobe.jpg" width="170">
+
+Carol - https://github.com/caz1502
+
+<img src="./public/images/Carol.jpg" width="170">
 
 WireFrame
 
-![WireFrame](../EventPlanner-Project2/public/images/WireFrame.jpg)
-
----
-
-Team Repo
-
-<img src="./public/images/Ben.png" width="180">
-<img src="./public/images/Gus.png" width="180">
-<img src="./public/images/Kobe.png" width="180">
-<img src="./public/images/Carol.png" width="180">
-
----
+<img src="./public/images/WireFrame.jpg">
 
 Working Application
 
-![App](../EventPlanner-Project2/public/images/App.png)
+<img src="./public/images/App.jpg">
 
----
+
 ## Apps
 
 *  Insomnia
@@ -105,7 +112,7 @@ Working Application
 ## Authors, Acknowledgement, & Resources 🤝
 
 ```md
-The very helpful teaching Crew at UniSA Coding Bootcamp 🎉 🤝
+The very helpful teaching Crew at UniSA Coding Bootcamp 🎉 
 W3Schools 
 GitHub 
 StackOverflow

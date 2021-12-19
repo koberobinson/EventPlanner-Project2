@@ -5,39 +5,47 @@ const { Category } = require('../models');
 const categoryData = [
   {
      id: '1',
-    description: 'Family Friendly'
+    description: 'Family Friendly',
+    color: "coral"
    
   },
   {id: '2',
-    description: 'Singles'
+    description: 'Singles',
+    color: "purple"
     
   },
   {id: '3',
-    description: 'Pub Crawl'
+    description: 'Pub Crawl',
+    color: "green"
     
   },
   {id: '4',
-    description: 'Couples'
+    description: 'Couples',
+    color: "pink"
     
   },
   {
     id: '5',
-    description: '20-30'
+    description: '20-30',
+    color: "blue"
     
   },
   {
     id: '6',
-    description: '30-50'
+    description: '30-50',
+    color: "yellow"
     
   },
   {
     id: '7',
-    description: '50+'
+    description: '50+',
+    color: "red"
     
   },
   {
      id: '8',
-    description: 'Seniors'   
+    description: 'Seniors' ,
+    color: "grey"  
   },
  
 ];

@@ -18,6 +18,10 @@ Category.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    color: {
+      type: DataTypes.STRING,
+      defaultValue: "red",
+    }
     // event_id: {
     //   type: DataTypes.INTEGER,
     //   references: {

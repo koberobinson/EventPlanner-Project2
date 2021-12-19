@@ -5,21 +5,32 @@
 
 <script>
 
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', async function () {
     var calendarEl = document.getElementById('calendar');
+
+    const loadedEvents = await fetch('/api/event').then(res => res.json());
+
+    console.log(loadedEvents);
+
+    const calendarEvents = loadedEvents.map(event => {
+      return {
+        title: event.description, 
+        start: event.date,
+        backgroundColor: event.category.color,
+      }
+    })
+
     var calendar = new FullCalendar.Calendar(calendarEl, {
-      initialView: 'dayGridMonth', events: [{ title: "breakfast", start: "2021-12-16" }]
+      initialView: 'dayGridMonth', events: calendarEvents
     });
 
-    const event = { title: "dinner", start: "2021-12-15", backgroundColor: "purple" };
-
-
-    calendar.addEvent(event);
     calendar.render();
     
   });
 
 </script>
+
+<script src="/js/calendar.js"></script>
 
 <div class="container mt-4">
 

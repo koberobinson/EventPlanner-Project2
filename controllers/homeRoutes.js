@@ -96,6 +96,10 @@ router.get('/calendar', (req, res) => {
 });
 
 router.get('/calendar', withAuth, async (req, res) => {
+  if (req.session.logged_in) {
+    
+  };
+
   try {
     // Get all events and JOIN with user data, cities and categories
     const eventData = await Event.findAll({

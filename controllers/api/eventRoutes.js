@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { Event } = require('../../models');
-const withAuth = require('../../../utils/auth');
+const { Event, User, Category, City } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // updating event route; event is obtained via event id which the user must supply, along with updated data from the front end
 router.put('/', withAuth, async (req, res) => {
@@ -13,6 +13,7 @@ router.put('/', withAuth, async (req, res) => {
       {date: req.body.date},
       {city_id: req.body.city_id},
       {user_id: req.body.user_id},
+      // delete user ID?? how to obtain user ID? get them to self select their ID?
       {category_id: req.body.category_id});
 
     res.status(200).json(updateEvent);
@@ -55,5 +56,36 @@ router.delete('/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get('/', async (req, res) => {
+  try {
+    // Get all events and JOIN with user data, cities and categories
+    const eventData = await Event.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name', 'id'],
+        },
+        {
+          model: Category,
+          attributes: ['description', 'id', 'color'],
+        }, 
+        {
+          model: City,
+          attributes: ['name', 'id']
+        }
+      ],
+    });
+
+    // Serialize data so the template can read it
+    const events = eventData.map((event) => event.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.json( events );
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
 
 module.exports = router;
